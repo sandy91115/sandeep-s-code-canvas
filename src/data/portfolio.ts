@@ -6,6 +6,11 @@ export const personalInfo = {
   education: "B.Tech CSE (2024)",
   email: "sandeep@example.com",
   location: "India",
+  bio: [
+    "I'm a Backend Software Engineer passionate about building scalable, efficient systems that handle millions of requests. With a B.Tech in Computer Science (2024), I specialize in the Java and Spring Boot ecosystem.",
+    "I focus on designing clean APIs, optimizing database performance, and implementing robust architectural patterns that stand the test of production traffic.",
+    "When I'm not coding, I'm exploring system design concepts, contributing to open-source, and staying up-to-date with the latest in distributed systems and cloud architecture.",
+  ],
 };
 
 export const socialLinks = [
@@ -23,6 +28,8 @@ export const typewriterStrings = [
   "Docker",
   "Microservices",
   "System Design",
+  "Redis",
+  "Kafka",
 ];
 
 export const skills = [
@@ -33,6 +40,8 @@ export const skills = [
   { name: "Docker", category: "backend", proficiency: 75 },
   { name: "MySQL", category: "backend", proficiency: 80 },
   { name: "Redis", category: "backend", proficiency: 65 },
+  { name: "Kafka", category: "backend", proficiency: 55 },
+  { name: "Microservices", category: "backend", proficiency: 65 },
   { name: "Git", category: "tools", proficiency: 85 },
   { name: "Linux", category: "tools", proficiency: 70 },
   { name: "HTML", category: "frontend", proficiency: 75 },
@@ -41,7 +50,7 @@ export const skills = [
   { name: "React", category: "frontend", proficiency: 65 },
   { name: "TypeScript", category: "frontend", proficiency: 60 },
   { name: "AWS", category: "devops", proficiency: 60 },
-  { name: "Kafka", category: "backend", proficiency: 55 },
+  { name: "CI/CD", category: "devops", proficiency: 55 },
 ];
 
 export const experiences = [
@@ -55,6 +64,19 @@ export const experiences = [
       "Developed high-performance REST APIs serving 10K+ requests/day",
       "Implemented caching strategies reducing response times by 40%",
       "Designed database schemas for complex business domains",
+      "Set up CI/CD pipelines with automated testing and deployment",
+    ],
+  },
+  {
+    title: "Software Engineering Intern",
+    company: "Startup",
+    period: "2023 — 2024",
+    description:
+      "Contributed to backend development using Java and PHP. Assisted in building e-commerce addons and API integrations for CS-Cart platform.",
+    highlights: [
+      "Built the RFQ addon for CS-Cart serving 500+ daily users",
+      "Implemented REST API endpoints with comprehensive documentation",
+      "Optimized SQL queries reducing page load times by 30%",
     ],
   },
 ];
@@ -104,27 +126,59 @@ export const projects = [
       "Containerized application with Docker, achieving 99.9% uptime with automated health monitoring",
     ],
   },
+  {
+    title: "Microservices E-Commerce Backend",
+    tagline: "Distributed backend with event-driven architecture",
+    techStack: ["Java", "Spring Boot", "Kafka", "PostgreSQL", "Docker", "Redis"],
+    problem:
+      "Monolithic e-commerce backends struggle to scale individual services independently, leading to bottlenecks during high-traffic events and complex deployment cycles.",
+    solution:
+      "Designed a microservices-based backend decomposing the monolith into Order, Inventory, Payment, and Notification services communicating via Kafka events with saga pattern for distributed transactions.",
+    architecture:
+      "Event-driven architecture using Kafka for inter-service communication. Each service owns its database (Database per Service pattern). API Gateway handles routing, authentication, and rate limiting. Circuit breaker pattern for fault tolerance.",
+    techDecisions:
+      "Chose Kafka over RabbitMQ for higher throughput and replay capability. Used saga pattern over 2PC for distributed transactions to maintain service autonomy. Implemented CQRS for read-heavy catalog service.",
+    challenges:
+      "Ensuring eventual consistency across services during distributed transactions. Handling service failures gracefully with circuit breakers and dead letter queues. Managing distributed tracing across service boundaries.",
+    impact:
+      "Improved deployment frequency by 4x with independent service deployments. Reduced order processing latency by 55%. System handles 3x peak traffic compared to the monolithic version.",
+    resumeBullets: [
+      "Architected microservices backend with event-driven Kafka messaging, improving deployment frequency by 4x",
+      "Implemented saga pattern for distributed transactions ensuring eventual consistency across 4 services",
+      "Reduced order processing latency by 55% through CQRS and service decomposition",
+    ],
+  },
 ];
 
 export const techStack = {
-  Languages: ["Java", "JavaScript", "TypeScript", "PHP", "SQL"],
-  Frameworks: ["Spring Boot", "React", "Node.js", "CS-Cart"],
-  Databases: ["PostgreSQL", "MySQL", "Redis", "MongoDB"],
-  DevOps: ["Docker", "AWS", "Linux", "CI/CD", "Nginx"],
-  Tools: ["Git", "Postman", "VS Code", "IntelliJ IDEA", "Swagger"],
+  Languages: ["Java", "JavaScript", "TypeScript", "PHP", "SQL", "Python"],
+  Frameworks: ["Spring Boot", "React", "Node.js", "CS-Cart", "Hibernate"],
+  Databases: ["PostgreSQL", "MySQL", "Redis", "MongoDB", "Elasticsearch"],
+  DevOps: ["Docker", "AWS", "Linux", "CI/CD", "Nginx", "Kubernetes"],
+  Tools: ["Git", "Postman", "VS Code", "IntelliJ IDEA", "Swagger", "Jira"],
 };
 
 export const roadmap = [
   { name: "Microservices Architecture", progress: 65, status: "learning" as const },
   { name: "Cloud Computing (AWS)", progress: 45, status: "learning" as const },
   { name: "System Design", progress: 50, status: "learning" as const },
-  { name: "Kubernetes", progress: 30, status: "exploring" as const },
+  { name: "Kubernetes & Container Orchestration", progress: 30, status: "exploring" as const },
   { name: "Message Queues (Kafka)", progress: 40, status: "learning" as const },
+  { name: "Distributed Systems", progress: 35, status: "exploring" as const },
 ];
 
 export const stats = [
   { label: "Years Experience", value: "1+" },
-  { label: "Projects Completed", value: "5+" },
+  { label: "Projects Completed", value: "8+" },
+  { label: "APIs Built", value: "20+" },
+  { label: "Lines of Code", value: "50K+" },
   { label: "Education", value: "B.Tech CSE" },
   { label: "Graduation", value: "2024" },
+];
+
+export const achievements = [
+  "Built production APIs handling 50K+ daily requests",
+  "Reduced system response times by 40% through caching",
+  "Deployed microservices processing 10K+ events/day",
+  "Open source contributor to Spring ecosystem",
 ];
