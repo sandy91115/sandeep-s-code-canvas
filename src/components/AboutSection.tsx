@@ -19,7 +19,7 @@ const AboutSection = () => (
     <div className="mx-auto max-w-6xl relative">
       <ScrollReveal>
         <div className="text-center mb-4">
-          <span className="text-xs uppercase tracking-[0.3em] text-primary/60 font-body">Who I Am</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-primary/60 font-mono">[ USER.PROFILE ]</span>
         </div>
         <h2 className="font-display text-5xl md:text-6xl font-bold mb-16 text-center">
           About <span className="text-primary">Me</span>
