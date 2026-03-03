@@ -10,7 +10,7 @@ const ExperienceSection = () => (
     <div className="mx-auto max-w-4xl">
       <ScrollReveal>
         <div className="text-center mb-4">
-          <span className="text-xs uppercase tracking-[0.3em] text-primary/60 font-body">Career Journey</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-primary/60 font-mono">[ WORK.LOG ]</span>
         </div>
         <h2 className="font-display text-5xl md:text-6xl font-bold mb-16 text-center">
           <span className="text-primary">Experience</span>

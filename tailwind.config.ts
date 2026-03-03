@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         display: ["Syne", "sans-serif"],
         body: ["Space Grotesk", "sans-serif"],
+        mono: ["JetBrains Mono", "Fira Code", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -81,8 +82,8 @@ export default {
           "50%": { transform: "translateY(-20px)" },
         },
         "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(30 100% 60% / 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsl(30 100% 60% / 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(120 100% 45% / 0.3)" },
+          "50%": { boxShadow: "0 0 40px hsl(120 100% 45% / 0.6)" },
         },
       },
       animation: {

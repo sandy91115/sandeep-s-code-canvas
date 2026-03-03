@@ -130,7 +130,7 @@ const ProjectsSection = () => {
       <div className="mx-auto max-w-6xl relative">
         <ScrollReveal>
           <div className="text-center mb-4">
-            <span className="text-xs uppercase tracking-[0.3em] text-primary/60 font-body">What I've Built</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-primary/60 font-mono">[ DEPLOYED.PROJECTS ]</span>
           </div>
           <h2 className="font-display text-5xl md:text-6xl font-bold mb-4 text-center">
             Featured <span className="text-primary">Projects</span>

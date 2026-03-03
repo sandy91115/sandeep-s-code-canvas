@@ -34,7 +34,7 @@ const RoadmapSection = () => (
       <ScrollReveal>
         <div className="text-center mb-4">
           <Rocket className="h-6 w-6 text-primary mx-auto mb-2" />
-          <span className="text-xs uppercase tracking-[0.3em] text-primary/60 font-body">Always Growing</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-primary/60 font-mono">[ UPGRADE.PATH ]</span>
         </div>
         <h2 className="font-display text-5xl md:text-6xl font-bold mb-4 text-center">
           Learning <span className="text-primary">Roadmap</span>

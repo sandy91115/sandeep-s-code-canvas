@@ -20,7 +20,7 @@ const TechStackSection = () => (
     <div className="mx-auto max-w-6xl relative">
       <ScrollReveal>
         <div className="text-center mb-4">
-          <span className="text-xs uppercase tracking-[0.3em] text-primary/60 font-body">Technologies I Use</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-primary/60 font-mono">[ ARSENAL.CONFIG ]</span>
         </div>
         <h2 className="font-display text-5xl md:text-6xl font-bold mb-4 text-center">
           Tech <span className="text-primary">Stack</span>
