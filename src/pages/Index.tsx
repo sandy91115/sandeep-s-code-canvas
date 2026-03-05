@@ -11,9 +11,12 @@ import TechStackSection from "@/components/TechStackSection";
 import RoadmapSection from "@/components/RoadmapSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import ParallaxSection from "@/components/animations/ParallaxSection";
+import useSmoothScroll from "@/hooks/useSmoothScroll";
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
+  useSmoothScroll();
 
   return (
     <div className="bg-background text-foreground min-h-screen">
@@ -22,13 +25,27 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <TechStackSection />
-        <RoadmapSection />
-        <ContactSection />
+        <ParallaxSection speed={0.2}>
+          <AboutSection />
+        </ParallaxSection>
+        <ParallaxSection speed={0.15}>
+          <SkillsSection />
+        </ParallaxSection>
+        <ParallaxSection speed={0.25}>
+          <ExperienceSection />
+        </ParallaxSection>
+        <ParallaxSection speed={0.1}>
+          <ProjectsSection />
+        </ParallaxSection>
+        <ParallaxSection speed={0.2}>
+          <TechStackSection />
+        </ParallaxSection>
+        <ParallaxSection speed={0.15}>
+          <RoadmapSection />
+        </ParallaxSection>
+        <ParallaxSection speed={0.1}>
+          <ContactSection />
+        </ParallaxSection>
       </main>
       <Footer />
     </div>
