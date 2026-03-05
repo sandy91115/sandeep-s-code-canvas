@@ -17,7 +17,7 @@ const AnimatedBar = ({ value, delay }: { value: number; delay: number }) => {
     <div ref={ref} className="h-2.5 w-full rounded-full bg-muted overflow-hidden">
       <motion.div
         className="h-full rounded-full relative overflow-hidden"
-        style={{ background: `linear-gradient(90deg, hsl(30 100% 50%), hsl(30 100% 65%))` }}
+        style={{ background: `linear-gradient(90deg, hsl(195 100% 45%), hsl(195 100% 60%))` }}
         initial={{ width: 0 }}
         animate={inView ? { width: `${value}%` } : {}}
         transition={{ duration: 1.2, delay, ease: "easeOut" }}

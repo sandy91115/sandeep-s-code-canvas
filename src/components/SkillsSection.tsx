@@ -26,7 +26,7 @@ function ConnectionLines({ positions }: { positions: [number, number, number][] 
         const points = [line.start, line.end];
         const geometry = new THREE.BufferGeometry().setFromPoints(points);
         return (
-          <primitive key={i} object={new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: "#00e600", transparent: true, opacity: 0.1 }))} />
+          <primitive key={i} object={new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: "#00a0cc", transparent: true, opacity: 0.1 }))} />
         );
       })}
     </group>
@@ -45,23 +45,23 @@ function SkillNode({ name, position, isBackend, proficiency }: { name: string; p
     <group position={position}>
       <mesh ref={glowRef}>
         <sphereGeometry args={[scale * 2.5, 8, 8]} />
-        <meshBasicMaterial color={isBackend ? "#00ff41" : "#00aa2a"} transparent opacity={isBackend ? 0.06 : 0.02} />
+        <meshBasicMaterial color={isBackend ? "#00d4ff" : "#0088aa"} transparent opacity={isBackend ? 0.06 : 0.02} />
       </mesh>
       <mesh>
         <sphereGeometry args={[scale, 16, 16]} />
-        <meshStandardMaterial color={isBackend ? "#00ff41" : "#00aa2a"} emissive={isBackend ? "#00ff41" : "#005500"} emissiveIntensity={isBackend ? 1.5 : 0.4} metalness={0.9} roughness={0.1} />
+        <meshStandardMaterial color={isBackend ? "#00d4ff" : "#0088aa"} emissive={isBackend ? "#00d4ff" : "#004466"} emissiveIntensity={isBackend ? 1.5 : 0.4} metalness={0.9} roughness={0.1} />
       </mesh>
       {isBackend && (
         <mesh rotation={[Math.PI / 2, 0, 0]}>
           <ringGeometry args={[scale * 1.8, scale * 2.0, 32]} />
-          <meshBasicMaterial color="#00ff41" transparent opacity={0.15} side={THREE.DoubleSide} />
+          <meshBasicMaterial color="#00d4ff" transparent opacity={0.15} side={THREE.DoubleSide} />
         </mesh>
       )}
-      <Text position={[0, isBackend ? 0.35 : 0.22, 0]} fontSize={isBackend ? 0.22 : 0.14} color={isBackend ? "#00ff41" : "#00aa2a"} anchorX="center" anchorY="middle" font={undefined}>
+      <Text position={[0, isBackend ? 0.35 : 0.22, 0]} fontSize={isBackend ? 0.22 : 0.14} color={isBackend ? "#00d4ff" : "#0088aa"} anchorX="center" anchorY="middle" font={undefined}>
         {name}
       </Text>
       {isBackend && (
-        <Text position={[0, -0.28, 0]} fontSize={0.1} color="#00ff4188" anchorX="center" anchorY="middle">
+        <Text position={[0, -0.28, 0]} fontSize={0.1} color="#00d4ff88" anchorX="center" anchorY="middle">
           {proficiency}%
         </Text>
       )}
@@ -87,11 +87,11 @@ function Globe() {
 
   return (
     <group ref={groupRef}>
-      <mesh><sphereGeometry args={[2.8, 20, 20]} /><meshBasicMaterial color="#00ff41" transparent opacity={0.03} wireframe /></mesh>
-      <mesh><sphereGeometry args={[4.0, 12, 12]} /><meshBasicMaterial color="#00ff41" transparent opacity={0.015} wireframe /></mesh>
+      <mesh><sphereGeometry args={[2.8, 20, 20]} /><meshBasicMaterial color="#00d4ff" transparent opacity={0.03} wireframe /></mesh>
+      <mesh><sphereGeometry args={[4.0, 12, 12]} /><meshBasicMaterial color="#00d4ff" transparent opacity={0.015} wireframe /></mesh>
       <mesh rotation={[Math.PI / 2, 0, 0]}>
         <ringGeometry args={[3.48, 3.52, 64]} />
-        <meshBasicMaterial color="#00ff41" transparent opacity={0.08} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="#00d4ff" transparent opacity={0.08} side={THREE.DoubleSide} />
       </mesh>
       <ConnectionLines positions={nodePositions} />
       {skills.map((skill, i) => (
@@ -109,7 +109,7 @@ function FloatingParticles() {
   return (
     <points ref={pointsRef}>
       <bufferGeometry><bufferAttribute attach="attributes-position" count={200} array={positions} itemSize={3} /></bufferGeometry>
-      <pointsMaterial size={0.015} color="#00ff41" transparent opacity={0.4} sizeAttenuation />
+      <pointsMaterial size={0.015} color="#00d4ff" transparent opacity={0.4} sizeAttenuation />
     </points>
   );
 }
@@ -126,7 +126,7 @@ const SkillsSection = () => (
           Skills & <span className="text-primary">Expertise</span>
         </h2>
         <p className="text-center text-muted-foreground mb-6 max-w-2xl mx-auto text-lg font-body">
-          An interactive 3D constellation of my technical skills. Backend nodes highlighted in green.
+          An interactive 3D constellation of my technical skills. Backend nodes highlighted in cyan.
         </p>
       </ScrollReveal>
 
@@ -142,7 +142,6 @@ const SkillsSection = () => (
         <div className="absolute top-0 right-0 w-20 h-20 border-t border-r border-primary/30 rounded-tr-lg" />
         <div className="absolute bottom-0 left-0 w-20 h-20 border-b border-l border-primary/30 rounded-bl-lg" />
         <div className="absolute bottom-0 right-0 w-20 h-20 border-b border-r border-primary/30 rounded-br-lg" />
-        {/* Terminal header */}
         <div className="absolute top-0 left-0 right-0 h-8 border-b border-primary/10 flex items-center px-4 gap-2 z-10">
           <div className="w-2 h-2 rounded-full bg-primary/40" />
           <div className="w-2 h-2 rounded-full bg-primary/20" />
@@ -152,8 +151,8 @@ const SkillsSection = () => (
 
         <Canvas camera={{ position: [0, 0, 9], fov: 55 }}>
           <ambientLight intensity={0.3} />
-          <pointLight position={[10, 10, 10]} intensity={1.5} color="#00ff41" />
-          <pointLight position={[-10, -5, -10]} intensity={0.5} color="#00aa2a" />
+          <pointLight position={[10, 10, 10]} intensity={1.5} color="#00d4ff" />
+          <pointLight position={[-10, -5, -10]} intensity={0.5} color="#0088aa" />
           <Suspense fallback={null}><Globe /><FloatingParticles /></Suspense>
         </Canvas>
       </div>
