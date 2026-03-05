@@ -19,11 +19,11 @@ function GlassSphere() {
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
       <mesh ref={meshRef} scale={2.2}>
         <sphereGeometry args={[1, 64, 64]} />
-        <MeshDistortMaterial color="#00ff41" transparent opacity={0.2} distort={0.35} speed={2} roughness={0.1} metalness={0.9} />
+        <MeshDistortMaterial color="#00d4ff" transparent opacity={0.2} distort={0.35} speed={2} roughness={0.1} metalness={0.9} />
       </mesh>
       <mesh scale={2.6}>
         <sphereGeometry args={[1, 20, 20]} />
-        <meshBasicMaterial color="#00ff41" transparent opacity={0.04} wireframe />
+        <meshBasicMaterial color="#00d4ff" transparent opacity={0.04} wireframe />
       </mesh>
     </Float>
   );
@@ -37,7 +37,7 @@ function Particles() {
   return (
     <points ref={points}>
       <bufferGeometry><bufferAttribute attach="attributes-position" count={300} array={positions} itemSize={3} /></bufferGeometry>
-      <pointsMaterial size={0.02} color="#00ff41" transparent opacity={0.5} sizeAttenuation />
+      <pointsMaterial size={0.02} color="#00d4ff" transparent opacity={0.5} sizeAttenuation />
     </points>
   );
 }
@@ -66,8 +66,8 @@ const HeroSection = () => {
       <div className="absolute inset-0 pointer-events-none">
         <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
           <ambientLight intensity={0.2} />
-          <pointLight position={[10, 10, 10]} intensity={1} color="#00ff41" />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#00aa2a" />
+          <pointLight position={[10, 10, 10]} intensity={1} color="#00d4ff" />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#0088aa" />
           <Suspense fallback={null}>
             <GlassSphere />
             <Particles />

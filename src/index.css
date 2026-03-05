@@ -4,44 +4,44 @@
 
 @layer base {
   :root {
-    --background: 120 5% 3%;
-    --foreground: 120 10% 85%;
+    --background: 220 15% 4%;
+    --foreground: 210 20% 88%;
 
-    --card: 120 5% 6%;
-    --card-foreground: 120 10% 85%;
+    --card: 220 15% 7%;
+    --card-foreground: 210 20% 88%;
 
-    --popover: 120 5% 6%;
-    --popover-foreground: 120 10% 85%;
+    --popover: 220 15% 7%;
+    --popover-foreground: 210 20% 88%;
 
-    --primary: 120 100% 45%;
-    --primary-foreground: 120 5% 3%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 15% 4%;
 
-    --secondary: 120 5% 10%;
-    --secondary-foreground: 120 10% 85%;
+    --secondary: 220 10% 12%;
+    --secondary-foreground: 210 20% 88%;
 
-    --muted: 120 5% 12%;
-    --muted-foreground: 120 5% 50%;
+    --muted: 220 10% 14%;
+    --muted-foreground: 210 10% 50%;
 
-    --accent: 120 100% 45%;
-    --accent-foreground: 120 5% 3%;
+    --accent: 195 100% 50%;
+    --accent-foreground: 220 15% 4%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 120 10% 85%;
+    --destructive-foreground: 210 20% 88%;
 
-    --border: 120 10% 12%;
-    --input: 120 10% 12%;
-    --ring: 120 100% 45%;
+    --border: 210 15% 14%;
+    --input: 210 15% 14%;
+    --ring: 195 100% 50%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 120 5% 5%;
-    --sidebar-foreground: 120 10% 85%;
-    --sidebar-primary: 120 100% 45%;
-    --sidebar-primary-foreground: 120 5% 3%;
-    --sidebar-accent: 120 5% 10%;
-    --sidebar-accent-foreground: 120 10% 85%;
-    --sidebar-border: 120 10% 12%;
-    --sidebar-ring: 120 100% 45%;
+    --sidebar-background: 220 15% 5%;
+    --sidebar-foreground: 210 20% 88%;
+    --sidebar-primary: 195 100% 50%;
+    --sidebar-primary-foreground: 220 15% 4%;
+    --sidebar-accent: 220 10% 12%;
+    --sidebar-accent-foreground: 210 20% 88%;
+    --sidebar-border: 210 15% 14%;
+    --sidebar-ring: 195 100% 50%;
   }
 }
 
@@ -56,8 +56,8 @@
   }
 
   ::selection {
-    background: hsl(120 100% 45% / 0.3);
-    color: hsl(120 100% 90%);
+    background: hsl(195 100% 50% / 0.3);
+    color: hsl(195 100% 90%);
   }
 
   /* Scanline overlay effect */
@@ -71,8 +71,8 @@
       0deg,
       transparent,
       transparent 2px,
-      hsl(120 100% 45% / 0.015) 2px,
-      hsl(120 100% 45% / 0.015) 4px
+      hsl(195 100% 50% / 0.01) 2px,
+      hsl(195 100% 50% / 0.01) 4px
     );
   }
 }

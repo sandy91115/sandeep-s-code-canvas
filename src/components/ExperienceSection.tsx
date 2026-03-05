@@ -18,7 +18,6 @@ const ExperienceSection = () => (
       </ScrollReveal>
 
       <div className="relative">
-        {/* Animated timeline line */}
         <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px">
           <div className="w-full h-full bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
         </div>
@@ -26,7 +25,6 @@ const ExperienceSection = () => (
         {experiences.map((exp, i) => (
           <ScrollReveal key={i} direction={i % 2 === 0 ? "left" : "right"} delay={i * 0.2}>
             <div className={`relative flex ${i % 2 === 0 ? "md:justify-start" : "md:justify-end"} mb-16`}>
-              {/* Timeline node */}
               <motion.div
                 className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10"
                 initial={{ scale: 0 }}
@@ -34,13 +32,13 @@ const ExperienceSection = () => (
                 transition={{ delay: 0.3, type: "spring" }}
                 viewport={{ once: true }}
               >
-                <div className="w-10 h-10 rounded-full bg-card border-2 border-primary flex items-center justify-center shadow-[0_0_20px_hsl(30_100%_60%/0.3)]">
+                <div className="w-10 h-10 rounded-full bg-card border-2 border-primary flex items-center justify-center shadow-[0_0_20px_hsl(195_100%_50%/0.3)]">
                   <Briefcase className="h-4 w-4 text-primary" />
                 </div>
               </motion.div>
 
               <div className={`ml-16 md:ml-0 md:w-5/12 ${i % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
-                <div className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-6 hover:border-primary/30 transition-all hover:shadow-[0_0_30px_hsl(30_100%_60%/0.08)] group">
+                <div className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-6 hover:border-primary/30 transition-all hover:shadow-[0_0_30px_hsl(195_100%_50%/0.08)] group">
                   <span className="inline-block text-xs text-primary font-medium bg-primary/10 px-3 py-1 rounded-full mb-3">
                     {exp.period}
                   </span>

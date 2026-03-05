@@ -12,7 +12,6 @@ const highlights = [
 
 const AboutSection = () => (
   <section id="about" className="py-32 px-6 relative overflow-hidden">
-    {/* Floating background accent */}
     <div className="absolute top-1/4 -right-32 w-64 h-64 rounded-full bg-primary/5 blur-3xl animate-float" />
     <div className="absolute bottom-1/4 -left-32 w-48 h-48 rounded-full bg-primary/3 blur-3xl animate-float" style={{ animationDelay: '3s' }} />
 
@@ -35,7 +34,6 @@ const AboutSection = () => (
               </p>
             ))}
 
-            {/* Achievement bullets */}
             <div className="mt-8 pt-6 border-t border-border">
               <h3 className="font-display text-sm uppercase tracking-widest text-primary mb-4">Key Achievements</h3>
               <ul className="space-y-3">
@@ -58,7 +56,6 @@ const AboutSection = () => (
         </ScrollReveal>
 
         <div className="space-y-6">
-          {/* What I Do cards */}
           <ScrollReveal direction="right">
             <div className="grid grid-cols-2 gap-3 mb-6">
               {highlights.map((item, i) => (
@@ -68,7 +65,7 @@ const AboutSection = () => (
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-4 hover:border-primary/40 transition-all hover:shadow-[0_0_25px_hsl(30_100%_60%/0.1)] group"
+                  className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-4 hover:border-primary/40 transition-all hover:shadow-[0_0_25px_hsl(195_100%_50%/0.1)] group"
                   data-hoverable
                 >
                   <item.icon className="h-5 w-5 text-primary mb-2 group-hover:scale-110 transition-transform" />
@@ -79,11 +76,10 @@ const AboutSection = () => (
             </div>
           </ScrollReveal>
 
-          {/* Stats grid */}
           <div className="grid grid-cols-3 gap-3">
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 0.08}>
-                <div className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-4 text-center hover:border-primary/50 transition-all hover:shadow-[0_0_20px_hsl(30_100%_60%/0.1)]">
+                <div className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-4 text-center hover:border-primary/50 transition-all hover:shadow-[0_0_20px_hsl(195_100%_50%/0.1)]">
                   <div className="font-display text-2xl font-bold text-primary mb-1">{stat.value}</div>
                   <div className="text-xs text-muted-foreground">{stat.label}</div>
                 </div>
