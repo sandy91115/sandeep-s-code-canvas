@@ -4,6 +4,7 @@ import { MeshDistortMaterial, Float, Environment } from "@react-three/drei";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { typewriterStrings } from "@/data/portfolio";
+import MatrixRain from "@/components/MatrixRain";
 import * as THREE from "three";
 
 function GlassSphere() {
@@ -63,7 +64,11 @@ const HeroSection = () => {
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Matrix rain background */}
+      <MatrixRain />
+
+      {/* 3D scene on top of matrix rain */}
+      <div className="absolute inset-0 pointer-events-none z-[1]">
         <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
           <ambientLight intensity={0.2} />
           <pointLight position={[10, 10, 10]} intensity={1} color="#00d4ff" />
@@ -75,6 +80,9 @@ const HeroSection = () => {
           </Suspense>
         </Canvas>
       </div>
+
+      {/* Gradient overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-[2]" />
 
       <div className="relative z-10 text-center px-6">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }} className="mb-4">
@@ -100,7 +108,7 @@ const HeroSection = () => {
         </motion.p>
       </div>
 
-      <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2" animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }}>
+      <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10" animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }}>
         <ChevronDown className="h-6 w-6 text-primary" />
       </motion.div>
     </section>
