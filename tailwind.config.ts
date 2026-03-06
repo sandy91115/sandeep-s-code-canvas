@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Syne", "sans-serif"],
-        body: ["Space Grotesk", "sans-serif"],
-        mono: ["JetBrains Mono", "Fira Code", "monospace"],
+        display: ["Playfair Display", "Georgia", "serif"],
+        body: ["Inter", "-apple-system", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -79,18 +79,23 @@ export default {
         },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-20px)" },
+          "50%": { transform: "translateY(-12px)" },
         },
-        "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(42 85% 52% / 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsl(42 85% 52% / 0.6)" },
+        "subtle-glow": {
+          "0%, 100%": { boxShadow: "0 0 15px hsl(38 80% 55% / 0.15)" },
+          "50%": { boxShadow: "0 0 30px hsl(38 80% 55% / 0.3)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         float: "float 6s ease-in-out infinite",
-        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "subtle-glow": "subtle-glow 3s ease-in-out infinite",
+        shimmer: "shimmer 2s linear infinite",
       },
     },
   },
