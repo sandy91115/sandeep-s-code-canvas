@@ -27,12 +27,10 @@ const TiltCard = ({ project, onClick, index }: { project: Project; onClick: () =
         onMouseLeave={() => setRotate({ x: 0, y: 0 })}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        {/* Project number */}
         <span className="absolute top-4 right-4 text-6xl font-display font-bold text-primary/5 select-none">
           {String(index + 1).padStart(2, '0')}
         </span>
 
-        {/* Hover glow */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
         <div className="relative">
@@ -121,7 +119,6 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-32 px-6 relative">
-      {/* Animated grid background */}
       <div className="absolute inset-0 opacity-[0.02]" style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)`,
         backgroundSize: '50px 50px',

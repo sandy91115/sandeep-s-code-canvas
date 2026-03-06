@@ -2,7 +2,7 @@ import { Suspense, useRef, useState, useEffect, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { MeshDistortMaterial, Float, Environment } from "@react-three/drei";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react";
 import { typewriterStrings } from "@/data/portfolio";
 import MatrixRain from "@/components/MatrixRain";
 import * as THREE from "three";
@@ -20,11 +20,11 @@ function GlassSphere() {
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
       <mesh ref={meshRef} scale={2.2}>
         <sphereGeometry args={[1, 64, 64]} />
-        <MeshDistortMaterial color="#00d4ff" transparent opacity={0.2} distort={0.35} speed={2} roughness={0.1} metalness={0.9} />
+        <MeshDistortMaterial color="#E5A823" transparent opacity={0.2} distort={0.35} speed={2} roughness={0.1} metalness={0.9} />
       </mesh>
       <mesh scale={2.6}>
         <sphereGeometry args={[1, 20, 20]} />
-        <meshBasicMaterial color="#00d4ff" transparent opacity={0.04} wireframe />
+        <meshBasicMaterial color="#E5A823" transparent opacity={0.04} wireframe />
       </mesh>
     </Float>
   );
@@ -38,7 +38,7 @@ function Particles() {
   return (
     <points ref={points}>
       <bufferGeometry><bufferAttribute attach="attributes-position" count={300} array={positions} itemSize={3} /></bufferGeometry>
-      <pointsMaterial size={0.02} color="#00d4ff" transparent opacity={0.5} sizeAttenuation />
+      <pointsMaterial size={0.02} color="#E5A823" transparent opacity={0.5} sizeAttenuation />
     </points>
   );
 }
@@ -62,17 +62,23 @@ const HeroSection = () => {
     return () => clearTimeout(timeout);
   }, [text, deleting, currentIndex]);
 
+  const handleDownloadResume = () => {
+    // Creates a simple text-based resume download
+    const link = document.createElement("a");
+    link.href = "/resume.pdf";
+    link.download = "Sandeep_Chaudhary_Resume.pdf";
+    link.click();
+  };
+
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      {/* Matrix rain background */}
       <MatrixRain />
 
-      {/* 3D scene on top of matrix rain */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
         <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
           <ambientLight intensity={0.2} />
-          <pointLight position={[10, 10, 10]} intensity={1} color="#00d4ff" />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#0088aa" />
+          <pointLight position={[10, 10, 10]} intensity={1} color="#E5A823" />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#B8860B" />
           <Suspense fallback={null}>
             <GlassSphere />
             <Particles />
@@ -81,7 +87,6 @@ const HeroSection = () => {
         </Canvas>
       </div>
 
-      {/* Gradient overlay for readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-[2]" />
 
       <div className="relative z-10 text-center px-6">
@@ -106,6 +111,24 @@ const HeroSection = () => {
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }} className="text-muted-foreground text-lg mb-12 max-w-xl mx-auto font-body">
           Sandeep Chaudhary — Building robust backend systems with Java, Spring Boot & modern cloud infrastructure
         </motion.p>
+
+        {/* Glowing Resume Download CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 0.6 }}
+        >
+          <button
+            onClick={handleDownloadResume}
+            data-hoverable
+            className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl font-display font-semibold text-primary-foreground bg-primary overflow-hidden transition-all duration-300 hover:scale-105 animate-glow-pulse"
+          >
+            {/* Shimmer effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            <Download className="h-5 w-5 relative z-10" />
+            <span className="relative z-10">Download Resume</span>
+          </button>
+        </motion.div>
       </div>
 
       <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10" animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }}>
