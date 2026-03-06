@@ -32,13 +32,13 @@ const ExperienceSection = () => (
                 transition={{ delay: 0.3, type: "spring" }}
                 viewport={{ once: true }}
               >
-                <div className="w-10 h-10 rounded-full bg-card border-2 border-primary flex items-center justify-center shadow-[0_0_20px_hsl(195_100%_50%/0.3)]">
+                <div className="w-10 h-10 rounded-full bg-card border-2 border-primary flex items-center justify-center shadow-[0_0_20px_hsl(42_85%_52%/0.3)]">
                   <Briefcase className="h-4 w-4 text-primary" />
                 </div>
               </motion.div>
 
               <div className={`ml-16 md:ml-0 md:w-5/12 ${i % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
-                <div className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-6 hover:border-primary/30 transition-all hover:shadow-[0_0_30px_hsl(195_100%_50%/0.08)] group">
+                <div className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-6 hover:border-primary/30 transition-all hover:shadow-[0_0_30px_hsl(42_85%_52%/0.08)] group">
                   <span className="inline-block text-xs text-primary font-medium bg-primary/10 px-3 py-1 rounded-full mb-3">
                     {exp.period}
                   </span>

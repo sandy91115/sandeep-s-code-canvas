@@ -49,7 +49,7 @@ const TechStackSection = () => (
                     transition={{ delay: i * 0.05 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.05, y: -2 }}
-                    className="rounded-lg border border-border bg-card/60 px-4 py-2.5 text-sm text-foreground hover:border-primary/50 hover:shadow-[0_0_25px_hsl(195_100%_50%/0.15)] hover:text-primary transition-all duration-300 cursor-default"
+                    className="rounded-lg border border-border bg-card/60 px-4 py-2.5 text-sm text-foreground hover:border-primary/50 hover:shadow-[0_0_25px_hsl(42_85%_52%/0.15)] hover:text-primary transition-all duration-300 cursor-default"
                     data-hoverable
                   >
                     {item}

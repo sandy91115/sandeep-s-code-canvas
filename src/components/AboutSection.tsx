@@ -65,7 +65,7 @@ const AboutSection = () => (
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-4 hover:border-primary/40 transition-all hover:shadow-[0_0_25px_hsl(195_100%_50%/0.1)] group"
+                  className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-4 hover:border-primary/40 transition-all hover:shadow-[0_0_25px_hsl(42_85%_52%/0.1)] group"
                   data-hoverable
                 >
                   <item.icon className="h-5 w-5 text-primary mb-2 group-hover:scale-110 transition-transform" />
@@ -79,7 +79,7 @@ const AboutSection = () => (
           <div className="grid grid-cols-3 gap-3">
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 0.08}>
-                <div className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-4 text-center hover:border-primary/50 transition-all hover:shadow-[0_0_20px_hsl(195_100%_50%/0.1)]">
+                <div className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-4 text-center hover:border-primary/50 transition-all hover:shadow-[0_0_20px_hsl(42_85%_52%/0.1)]">
                   <div className="font-display text-2xl font-bold text-primary mb-1">{stat.value}</div>
                   <div className="text-xs text-muted-foreground">{stat.label}</div>
                 </div>

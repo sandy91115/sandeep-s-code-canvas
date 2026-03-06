@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef } from "react";
 
 const CHARS = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz{}[]<>/\\|=+-*&@#$%";
 
@@ -30,7 +30,7 @@ const MatrixRain = () => {
     window.addEventListener("resize", resize);
 
     const draw = () => {
-      ctx.fillStyle = "rgba(8, 12, 16, 0.06)";
+      ctx.fillStyle = "rgba(8, 10, 14, 0.06)";
       ctx.fillRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
 
       for (let i = 0; i < colCount; i++) {
@@ -38,15 +38,15 @@ const MatrixRain = () => {
         const x = i * fontSize;
         const y = columns[i] * fontSize;
 
-        // Head character — bright cyan
-        ctx.fillStyle = "rgba(0, 212, 255, 0.9)";
+        // Head character — warm amber
+        ctx.fillStyle = "rgba(229, 168, 35, 0.85)";
         ctx.font = `${fontSize}px "JetBrains Mono", monospace`;
         ctx.fillText(char, x, y);
 
-        // Trail characters — dimmer
+        // Trail characters — dimmer gold
         if (Math.random() > 0.6) {
           const trailChar = CHARS[Math.floor(Math.random() * CHARS.length)];
-          ctx.fillStyle = "rgba(0, 180, 220, 0.15)";
+          ctx.fillStyle = "rgba(184, 134, 11, 0.12)";
           ctx.fillText(trailChar, x, y - fontSize * 2);
         }
 
