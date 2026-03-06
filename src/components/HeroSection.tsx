@@ -2,29 +2,28 @@ import { Suspense, useRef, useState, useEffect, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { MeshDistortMaterial, Float, Environment } from "@react-three/drei";
 import { motion } from "framer-motion";
-import { ChevronDown, Download } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { typewriterStrings } from "@/data/portfolio";
-import MatrixRain from "@/components/MatrixRain";
 import * as THREE from "three";
 
 function GlassSphere() {
   const meshRef = useRef<THREE.Mesh>(null);
   useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.2;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;
+      meshRef.current.rotation.x = state.clock.elapsedTime * 0.15;
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.2;
     }
   });
 
   return (
-    <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
-      <mesh ref={meshRef} scale={2.2}>
+    <Float speed={1.2} rotationIntensity={0.3} floatIntensity={0.8}>
+      <mesh ref={meshRef} scale={2.5}>
         <sphereGeometry args={[1, 64, 64]} />
-        <MeshDistortMaterial color="#E5A823" transparent opacity={0.2} distort={0.35} speed={2} roughness={0.1} metalness={0.9} />
+        <MeshDistortMaterial color="#C9982E" transparent opacity={0.08} distort={0.25} speed={1.5} roughness={0.2} metalness={0.95} />
       </mesh>
-      <mesh scale={2.6}>
-        <sphereGeometry args={[1, 20, 20]} />
-        <meshBasicMaterial color="#E5A823" transparent opacity={0.04} wireframe />
+      <mesh scale={3}>
+        <sphereGeometry args={[1, 24, 24]} />
+        <meshBasicMaterial color="#C9982E" transparent opacity={0.02} wireframe />
       </mesh>
     </Float>
   );
@@ -32,13 +31,21 @@ function GlassSphere() {
 
 function Particles() {
   const points = useRef<THREE.Points>(null);
-  const positions = useMemo(() => { const arr = new Float32Array(300 * 3); for (let i = 0; i < 300 * 3; i++) arr[i] = (Math.random() - 0.5) * 15; return arr; }, []);
-  useFrame((state) => { if (points.current) points.current.rotation.y = state.clock.elapsedTime * 0.03; });
+  const positions = useMemo(() => {
+    const arr = new Float32Array(150 * 3);
+    for (let i = 0; i < 150 * 3; i++) arr[i] = (Math.random() - 0.5) * 18;
+    return arr;
+  }, []);
+  useFrame((state) => {
+    if (points.current) points.current.rotation.y = state.clock.elapsedTime * 0.015;
+  });
 
   return (
     <points ref={points}>
-      <bufferGeometry><bufferAttribute attach="attributes-position" count={300} array={positions} itemSize={3} /></bufferGeometry>
-      <pointsMaterial size={0.02} color="#E5A823" transparent opacity={0.5} sizeAttenuation />
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" count={150} array={positions} itemSize={3} />
+      </bufferGeometry>
+      <pointsMaterial size={0.015} color="#C9982E" transparent opacity={0.3} sizeAttenuation />
     </points>
   );
 }
@@ -53,32 +60,22 @@ const HeroSection = () => {
     const timeout = setTimeout(() => {
       if (!deleting) {
         setText(full.slice(0, text.length + 1));
-        if (text.length === full.length) setTimeout(() => setDeleting(true), 1500);
+        if (text.length === full.length) setTimeout(() => setDeleting(true), 2000);
       } else {
         setText(full.slice(0, text.length - 1));
         if (text.length === 0) { setDeleting(false); setCurrentIndex((p) => (p + 1) % typewriterStrings.length); }
       }
-    }, deleting ? 50 : 100);
+    }, deleting ? 40 : 80);
     return () => clearTimeout(timeout);
   }, [text, deleting, currentIndex]);
 
-  const handleDownloadResume = () => {
-    // Creates a simple text-based resume download
-    const link = document.createElement("a");
-    link.href = "/resume.pdf";
-    link.download = "Sandeep_Chaudhary_Resume.pdf";
-    link.click();
-  };
-
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <MatrixRain />
-
-      <div className="absolute inset-0 pointer-events-none z-[1]">
+      <div className="absolute inset-0 pointer-events-none">
         <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-          <ambientLight intensity={0.2} />
-          <pointLight position={[10, 10, 10]} intensity={1} color="#E5A823" />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#B8860B" />
+          <ambientLight intensity={0.15} />
+          <pointLight position={[10, 10, 10]} intensity={0.8} color="#C9982E" />
+          <pointLight position={[-10, -10, -10]} intensity={0.3} color="#8B6914" />
           <Suspense fallback={null}>
             <GlassSphere />
             <Particles />
@@ -87,52 +84,84 @@ const HeroSection = () => {
         </Canvas>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-[2]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/70 to-background z-[2]" />
 
-      <div className="relative z-10 text-center px-6">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }} className="mb-4">
-          <span className="text-xs uppercase tracking-[0.3em] text-primary/60 font-mono">[ SYSTEM ONLINE ]</span>
-        </motion.div>
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="text-sm tracking-[0.3em] uppercase text-muted-foreground font-body font-medium mb-6"
+        >
+          Backend Software Engineer
+        </motion.p>
 
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight">
-          Backend Engineer
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-8 leading-[1.05] italic"
+        >
+          Crafting Scalable
           <br />
-          <span className="text-primary">Crafting Scalable Systems</span>
+          <span className="text-primary">Systems</span>
         </motion.h1>
 
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="h-8 mb-8">
-          <span className="font-mono text-xl text-muted-foreground">
-            {"$ "}
-            <span className="text-primary">{text}</span>
-            <span className="animate-pulse text-primary">_</span>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="h-7 mb-10"
+        >
+          <span className="font-mono text-base text-muted-foreground">
+            {text}
+            <span className="text-primary animate-pulse">|</span>
           </span>
         </motion.div>
 
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }} className="text-muted-foreground text-lg mb-12 max-w-xl mx-auto font-body">
-          Sandeep Chaudhary — Building robust backend systems with Java, Spring Boot & modern cloud infrastructure
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.3 }}
+          className="text-muted-foreground text-lg mb-14 max-w-lg mx-auto font-body leading-relaxed"
+        >
+          Building robust backend systems with Java, Spring Boot & modern cloud infrastructure.
         </motion.p>
 
-        {/* Glowing Resume Download CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.6 }}
+          transition={{ delay: 1.6, duration: 0.6 }}
+          className="flex items-center justify-center gap-5"
         >
-          <button
-            onClick={handleDownloadResume}
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
             data-hoverable
-            className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl font-display font-semibold text-primary-foreground bg-primary overflow-hidden transition-all duration-300 hover:scale-105 animate-glow-pulse"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-body font-medium text-sm text-primary-foreground bg-primary hover:opacity-90 transition-opacity"
           >
-            {/* Shimmer effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-            <Download className="h-5 w-5 relative z-10" />
-            <span className="relative z-10">Download Resume</span>
-          </button>
+            Get In Touch
+          </a>
+          <a
+            href="/resume.pdf"
+            download="Sandeep_Chaudhary_Resume.pdf"
+            data-hoverable
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-body font-medium text-sm text-foreground border border-border hover:border-primary/40 transition-colors"
+          >
+            Download CV
+          </a>
         </motion.div>
       </div>
 
-      <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10" animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }}>
-        <ChevronDown className="h-6 w-6 text-primary" />
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <ArrowDown className="h-5 w-5 text-muted-foreground" />
       </motion.div>
     </section>
   );
