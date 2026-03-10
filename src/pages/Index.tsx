@@ -11,6 +11,7 @@ import TechStackSection from "@/components/TechStackSection";
 import RoadmapSection from "@/components/RoadmapSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import SectionTransition from "@/components/animations/SectionTransition";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
 
 const Index = () => {
@@ -24,13 +25,13 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <TechStackSection />
-        <RoadmapSection />
-        <ContactSection />
+        <SectionTransition><AboutSection /></SectionTransition>
+        <SectionTransition><SkillsSection /></SectionTransition>
+        <SectionTransition><ExperienceSection /></SectionTransition>
+        <SectionTransition><ProjectsSection /></SectionTransition>
+        <SectionTransition><TechStackSection /></SectionTransition>
+        <SectionTransition><RoadmapSection /></SectionTransition>
+        <SectionTransition><ContactSection /></SectionTransition>
       </main>
       <Footer />
     </div>
